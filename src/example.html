@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo App - jQuery</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Todo App</h1>
+    
+    <div class="input-container">
+      <input id="taskInput" type="text" placeholder="Add task">
+      <button id="addButton">Add</button>
+    </div>
+    
+    <ul id="taskList">
+      <li>Sample task</li>
+    </ul>
+  </div>
+
+  <script>
+      $(document).ready(function() {
+  $('#addButton').on('click', function() {
+    var taskInput = $('#taskInput').val();
+    if (taskInput !== '') {
+      $('#taskList').append('<li>' + taskInput + '</li>');
+      $('#taskInput').val('');
+    }
+  });
+  
+  $(document).on('click', '#taskList li', function() {
+    $(this).toggleClass('completed');
+  });
+});
+  </script>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
